@@ -15,16 +15,32 @@ soup_obj = BeautifulSoup(result.content, "html.parser")
 
 div = soup_obj.findAll("div", {"class": "name"})
 
-strong = soup_obj.findAll("strong", {"class": "price-value"})
+# strong = soup_obj.findAll("strong", {"class": "price-value"})
+strong = soup_obj.findAll("em", {"class": "sale"})
 
 
 for li in div:
     # print(div[li].text)
-    item_list.append(li.text)
+    item_list.append(li.text.strip())
+
+# print(strong)
 
 for li in strong:
-    price_list.append(li.text)
+    if "sale-fluid" in li:
+        print("행사 상품")
+    else:
+        print(li.text)
 
-for li in range(len(price_list)):
-    print("item" + ": " + item_list[li] + "," + "price" + ": " + price_list[li])
+    # print(li, val)
+    # print(li)
+
+# price_list.append(li.text)
+
+# print(len(item_list))
+# print(len(price_list))
+
+
+# for li in range(len(price_list)):
+#     print("item" + ": " + item_list[li] + "," + "price" + ": " + price_list[li])
+# print("price" + ": " + price_list[li])
 
