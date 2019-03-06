@@ -9,6 +9,7 @@ headers = {
 
 item_list = []
 price_list = []
+ul = []
 url = "http://www.coupang.com/np/categories/176860?page=1"
 result = requests.get(url, headers=headers)
 soup_obj = BeautifulSoup(result.content, "html.parser")
@@ -16,23 +17,28 @@ soup_obj = BeautifulSoup(result.content, "html.parser")
 div = soup_obj.findAll("div", {"class": "name"})
 
 # strong = soup_obj.findAll("strong", {"class": "price-value"})
-strong = soup_obj.findAll("em", {"class": "sale"})
+# strong = soup_obj.select("em > strong.price-value")[0]
+ul = soup_obj.find("ul", {"class": "baby-product-list"})
 
+strong = soup_obj.findAll("em", {"class": "sale"})
 
 for li in div:
     # print(div[li].text)
     item_list.append(li.text.strip())
 
-# print(strong)
+# ul = strong.findAll("em", {"class": "sale sale-fluid"})
 
-for li in strong:
-    if "sale-fluid" in li:
-        print("행사 상품")
-    else:
-        print(li.text)
 
-    # print(li, val)
-    # print(li)
+for li in ul:
+    print(li.text[1])
+
+# if "sale-fluid" in li:
+#     print("행사 상품")
+# else:
+#     print(li.text)
+
+# print(li, val)
+# print(li)
 
 # price_list.append(li.text)
 
