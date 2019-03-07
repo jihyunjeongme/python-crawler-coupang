@@ -51,6 +51,8 @@ headers = {
 
 <img src="https://user-images.githubusercontent.com/43984584/53936758-4ffebf00-40ee-11e9-922a-d06cc15e0f9c.png">
 
+[![Video Label](https://user-images.githubusercontent.com/43984584/53941115-9f4aec80-40fa-11e9-92ea-c8e3bacb9c5a.png)](https://drive.google.com/file/d/1Q1IZWXf5CUAr3JISGBgjxsbz_hLwqWcn/view) 쿠팡 사이트 - 화장품명,가격 정보 크롤링
+
 ## 비고
 
 - 초보자들의 파이썬 크롤링 학습용으로 개발된 프로그램이며 영리 목적이 아님을 밝힙니다.
