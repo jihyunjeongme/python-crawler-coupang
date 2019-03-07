@@ -25,11 +25,13 @@
 
 ## Step
 
-### 1. 파이썬을 설치합니다.
+#### 1. 파이썬을 설치합니다.
 
-### 2. `pip3 install requests` , `pip3 install bs4` 커맨드를 통해 모듈들을 설치합니다.
+#### 2. 아래의 모듈을 설치합니다.
 
-### 3.헤더값을 넣기 위해 아래 사이트에서 본인의 `User-Agent` 값을 가져와서 넣어줍니다.
+`pip3 install requests` , `pip3 install bs4`
+
+#### 3.헤더값을 넣기 위해 아래 사이트에서 본인의 `User-Agent` 값을 가져와서 넣어줍니다.
 
 - http://www.useragentstring.com/
 
