@@ -7,46 +7,34 @@ headers = {
     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36"
 }
 
-item_list = []
-price_list = []
-ul = []
-url = "http://www.coupang.com/np/categories/176860?page=1"
-result = requests.get(url, headers=headers)
-soup_obj = BeautifulSoup(result.content, "html.parser")
+# 스킨케어 - 쿠팡랭킹순 모든 상품,가격 가져오기
+for idx in range(1, 17):
+    url = "http://www.coupang.com/np/categories/176860?page=" + str(idx)
 
-div = soup_obj.findAll("div", {"class": "name"})
+    print(url)
+    result = requests.get(url, headers=headers)
+    soup_obj = BeautifulSoup(result.content, "html.parser")
 
-# strong = soup_obj.findAll("strong", {"class": "price-value"})
-# strong = soup_obj.select("em > strong.price-value")[0]
-ul = soup_obj.find("ul", {"class": "baby-product-list"})
+    div = soup_obj.findAll("div", {"class": "name"})
+    lis = soup_obj.find("ul", {"id": "productList"}).findAll("li")
 
-strong = soup_obj.findAll("em", {"class": "sale"})
+    for li in lis:
+        product = li.find("div", {"class": "name"})
+        price = li.find("em", {"class": "sale"}).find(
+            "strong", {"class": "price-value"}
+        )
+        print("화장품명: " + product.text.strip() + " / " + "상품가격: " + price.text.strip())
 
-for li in div:
-    # print(div[li].text)
-    item_list.append(li.text.strip())
+## 참고
+# enumerate 내장함수 사용하여 Index 출력할 경우
+# price_list = list(enumerate(strong))
+# for idx, var in enumerate(0):
+#     print(idx, var)
 
-# ul = strong.findAll("em", {"class": "sale sale-fluid"})
+# for idx, var in enumerate(strong):
+#     print(idx, var)
 
-
-for li in ul:
-    print(li.text[1])
-
-# if "sale-fluid" in li:
-#     print("행사 상품")
-# else:
-#     print(li.text)
-
-# print(li, val)
-# print(li)
-
-# price_list.append(li.text)
-
-# print(len(item_list))
-# print(len(price_list))
-
-
-# for li in range(len(price_list)):
-#     print("item" + ": " + item_list[li] + "," + "price" + ": " + price_list[li])
-# print("price" + ": " + price_list[li])
-
+# CSS를 활용해 select로 찾는 방법
+# strong = soup_obj.select(
+#     "li > a > dl > dd > div.price-area > div > div.price > em.sale > strong"
+# )
