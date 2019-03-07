@@ -27,7 +27,21 @@
 
 ### 1. 파이썬을 설치합니다.
 
-### 2. `pip3 install
+### 2. `pip3 install requests` , `pip3 install bs4` 커맨드를 통해 모듈들을 설치합니다.
+
+### 3.헤더값을 넣기 위해 아래 사이트에서 본인의 `User-Agent` 값을 가져와서 넣어줍니다.
+
+- http://www.useragentstring.com/
+
+<img src="https://user-images.githubusercontent.com/43984584/53936892-c4d1f900-40ee-11e9-9e71-4826738c6d50.png">
+
+```bash
+headers = {
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3) AppleWebKit/537.36 ****(KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36****"
+}
+```
+
+### 4. 프로그램을 실행시킵니다.
 
 ## 결과물
 
