@@ -51,6 +51,8 @@ headers = {
 
 <img src="https://user-images.githubusercontent.com/43984584/53936758-4ffebf00-40ee-11e9-922a-d06cc15e0f9c.png">
 
+AwesomeScreenshot-2019-03-07T07-43-25-812Z.webm
+
 ## 비고
 
 - 초보자들의 파이썬 크롤링 학습용으로 개발된 프로그램이며 영리 목적이 아님을 밝힙니다.
